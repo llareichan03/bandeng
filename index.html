@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sate Bandeng Bapak Sarnaka - Kuliner Khas Mauk, Tangerang</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#d97706',
+                            600: '#b45309',
+                            700: '#92400e',
+                            800: '#78350f',
+                            900: '#451a03',
+                            accent: '#ea580c',
+                            dark: '#1c130e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar and wood texture accent styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1c130e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b45309;
+            border-radius: 4px;
+        }
+        .wood-pattern {
+            background-color: #1a110b;
+            background-image: radial-gradient(#3a2517 0.75px, transparent 0.75px), radial-gradient(#3a2517 0.75px, #1a110b 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+        .badge-shadow {
+            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#faf7f2] text-gray-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-brand-900 text-amber-200 text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2 border-b border-brand-800/50 flex-wrap">
+        <span class="bg-brand-600 text-white text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">Oleh-Oleh Khas Mauk</span>
+        <span>Hubungi: <strong>0856-9486-7226</strong> | Melayani Pesanan Acara & Kirim Seluruh Indonesia!</span>
+        <a href="https://wa.me/6285694867226" target="_blank" class="underline hover:text-white transition ml-2 font-semibold">Pesan WA &rarr;</a>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-[#1c130e]/95 backdrop-blur-md border-b border-amber-900/40 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo Badge -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-700 rounded-xl flex items-center justify-center text-white shadow-lg transform group-hover:rotate-6 transition duration-300 border border-amber-400/30">
+                        <i class="fa-solid fa-fire-burner text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-lg sm:text-xl font-bold tracking-wide text-amber-100 group-hover:text-brand-500 transition">
+                            SATE BANDENG
+                        </span>
+                        <span class="block text-xs uppercase tracking-widest text-amber-400 font-semibold">
+                            BAPAK SARNAKA • MAUK
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                    <a href="#beranda" class="text-amber-400 hover:text-amber-300 transition">BERANDA</a>
+                    <a href="#tentang" class="text-gray-300 hover:text-amber-400 transition">TENTANG KAMI</a>
+                    <a href="#menu" class="text-gray-300 hover:text-amber-400 transition">MENU & HARGA</a>
+                    <a href="#marketplace" class="text-gray-300 hover:text-amber-400 transition">MARKETPLACE</a>
+                    <a href="#testimoni" class="text-gray-300 hover:text-amber-400 transition">TESTIMONI</a>
+                    <a href="#kontak" class="text-gray-300 hover:text-amber-400 transition">LOKASI</a>
+                </nav>
+
+                <!-- Action Button & Cart Trigger -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openCartModal()" class="relative bg-brand-800 hover:bg-brand-700 text-amber-200 p-2.5 rounded-lg transition flex items-center gap-2 border border-brand-600/50">
+                        <i class="fa-solid fa-basket-shopping text-lg"></i>
+                        <span id="cart-badge" class="bg-brand-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+                    </button>
+                    <a href="https://wa.me/6285694867226" target="_blank" class="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold px-5 py-2.5 rounded-lg transition duration-300 shadow-md hover:shadow-lg flex items-center gap-2 border border-amber-400/20 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> 0856-9486-7226
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button onclick="openCartModal()" class="relative bg-brand-800 text-amber-200 p-2 rounded-lg border border-brand-600/50">
+                        <i class="fa-solid fa-basket-shopping text-base"></i>
+                        <span id="cart-badge-mobile" class="absolute -top-1 -right-1 bg-brand-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1a110b] border-t border-brand-900/60 px-4 pt-3 pb-6 space-y-3">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block text-amber-400 font-semibold py-2 border-b border-amber-900/20">BERANDA</a>
+            <a href="#tentang" onclick="toggleMobileMenu()" class="block text-gray-300 font-semibold py-2 border-b border-amber-900/20">TENTANG KAMI</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block text-gray-300 font-semibold py-2 border-b border-amber-900/20">MENU & HARGA</a>
+            <a href="#keunggulan" onclick="toggleMobileMenu()" class="block text-gray-300 font-semibold py-2 border-b border-amber-900/20">KEUNGGULAN</a>
+            <a href="#testimoni" onclick="toggleMobileMenu()" class="block text-gray-300 font-semibold py-2 border-b border-amber-900/20">TESTIMONI</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="block text-gray-300 font-semibold py-2">LOKASI & KONTAK</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="mt-2 w-full bg-brand-600 text-white text-center font-bold py-3 rounded-lg flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Pesan via WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative wood-pattern text-white overflow-hidden py-16 lg:py-24 border-b-4 border-brand-600">
+        <!-- Decorative Glow Backgrounds -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-amber-950/80 border border-amber-600/40 text-amber-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-award text-amber-400"></i> Resep Warisan Kuliner Sejak 1980
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+                        Kelezatan <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-brand-500 to-amber-200">Sate Bandeng</span> Asli Mauk Tangerang
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Nikmati perpaduan sempurna daging ikan bandeng lembut **bebas duri**, diolah dengan bumbu rempah santan otentik resep rahasia <strong class="text-amber-300 font-semibold">Bapak Sarnaka</strong>. Dipanggang tradisional di atas arang batok kelapa.
+                    </p>
+
+                    <!-- Features Pill Badge Row -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 py-2 text-xs sm:text-sm text-amber-200">
+                        <span class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                            <i class="fa-solid fa-check text-brand-500"></i> 100% Bebas Duri
+                        </span>
+                        <span class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                            <i class="fa-solid fa-check text-brand-500"></i> Rempah Otentik Mauk
+                        </span>
+                        <span class="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                            <i class="fa-solid fa-check text-brand-500"></i> Halal & Higienis
+                        </span>
+                    </div>
+
+                    <!-- CTA Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#menu" class="w-full sm:w-auto bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-amber-500/20 transition duration-300 text-center flex items-center justify-center gap-3 border border-amber-400/30 text-base">
+                            <i class="fa-solid fa-utensils"></i> LIHAT MENU & HARGA
+                        </a>
+                        <a href="https://wa.me/6285694867226" target="_blank" class="w-full sm:w-auto bg-amber-950/80 hover:bg-amber-900 border border-amber-500/50 text-amber-200 font-bold px-8 py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-3 text-base">
+                            <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i> WA: 0856-9486-7226
+                        </a>
+                    </div>
+
+                    <!-- Marketplace Buttons in Hero -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                        <span class="text-xs text-gray-400 w-full sm:w-auto text-center lg:text-left">Atau pesan online di:</span>
+                        <a href="#marketplace" class="bg-[#EE4D2D] hover:bg-[#d63f21] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-bag-shopping"></i> Shopee
+                        </a>
+                        <a href="#marketplace" class="bg-[#03AC0E] hover:bg-[#028f0b] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow">
+                            <i class="fa-solid fa-store"></i> Tokopedia
+                        </a>
+                        <a href="#marketplace" class="bg-black border border-gray-700 hover:bg-neutral-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow">
+                            <i class="fa-brands fa-tiktok"></i> TikTok Shop
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlight Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-amber-900/50 text-center lg:text-left">
+                        <div>
+                            <div class="font-serif text-2xl sm:text-3xl font-bold text-amber-400">40+</div>
+                            <div class="text-xs text-gray-400">Tahun Pengalaman</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl sm:text-3xl font-bold text-amber-400">100%</div>
+                            <div class="text-xs text-gray-400">Tanpa Duri</div>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl sm:text-3xl font-bold text-amber-400">4.9/5</div>
+                            <div class="text-xs text-gray-400">Rating Pelanggan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image Showcase Column -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Outer Decorative Frame -->
+                        <div class="absolute -inset-3 bg-gradient-to-r from-brand-500 to-amber-600 rounded-2xl blur-lg opacity-40 animate-pulse"></div>
+                        
+                        <div class="relative bg-amber-950 rounded-2xl p-3 border-2 border-amber-600/40 shadow-2xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Sate Bandeng Bapak Sarnaka Mauk Tangerang" 
+                                 class="w-full h-80 sm:h-96 object-cover rounded-xl transform hover:scale-105 transition duration-500">
+                            
+                            <!-- Floating Floating Product Badge -->
+                            <div class="absolute bottom-6 left-6 right-6 bg-black/85 backdrop-blur-md p-4 rounded-xl border border-amber-500/30 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-bold text-amber-200 text-sm">Sate Bandeng Spesial Mauk</h3>
+                                    <p class="text-xs text-gray-300">Resep Asli Bapak Sarnaka</p>
+                                </div>
+                                <span class="bg-brand-500 text-white font-extrabold text-sm px-3 py-1.5 rounded-lg shadow">
+                                    Rp 35.000
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section / Tentang Kami -->
+    <section id="tentang" class="py-20 bg-[#faf7f2] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Image Grid Side -->
+                <div class="lg:col-span-6 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Penyajian Sate Bandeng" 
+                                 class="w-full h-56 object-cover rounded-2xl shadow-lg border-2 border-amber-200">
+                            <div class="bg-brand-900 text-amber-100 p-5 rounded-2xl border border-brand-700 shadow-md">
+                                <i class="fa-solid fa-utensils text-2xl text-amber-400 mb-2"></i>
+                                <h4 class="font-bold text-base">Proses Tradisional</h4>
+                                <p class="text-xs text-amber-200/80 mt-1">Dipukul dan dikeluarkan durinya satu per satu secara teliti tanpa merusak kulit ikan.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="bg-amber-100 p-5 rounded-2xl border border-amber-300 shadow-sm">
+                                <span class="font-serif font-bold text-3xl text-brand-800">40+</span>
+                                <p class="text-xs font-semibold text-brand-900 mt-1">Tahun Menjaga Kualitas Rasa Otentik Mauk Tangerang</p>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Proses Pemanggangan Sate Bandeng" 
+                                 class="w-full h-56 object-cover rounded-2xl shadow-lg border-2 border-amber-200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Story Side -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block text-brand-600 font-bold text-sm tracking-widest uppercase">
+                        Warisan Cita Rasa Legendaris
+                    </div>
+                    
+                    <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-brand-900 leading-tight">
+                        Kisah Sate Bandeng Bapak Sarnaka Khas Mauk, Tangerang
+                    </h2>
+
+                    <p class="text-gray-700 leading-relaxed text-base">
+                        Sate Bandeng merupakan mahakarya kuliner khas pesisir Tangerang, khususnya daerah <strong class="text-brand-800">Mauk</strong>. Berawal dari niat menyajikan ikan bandeng tanpa repot duri, <strong class="text-brand-800">Bapak Sarnaka</strong> menciptakan racikan istimewa yang memadukan daging ikan segar, santan kental, serta bumbu rempah pilihan.
+                    </p>
+
+                    <p class="text-gray-700 leading-relaxed text-base">
+                        Proses pembuatannya membutuhkan keahlian tinggi: daging ikan dikeluarkan tanpa merusak kulitnya, dicabut seluruh durinya hingga benar-benar bersih, lalu ditumbuk halus dan dicampur bumbu rempah kaya rasa. Daging yang telah dibumbui dimasukkan kembali ke dalam kulit ikan, dijepit bambu, lalu dipanggang di atas bara arang batok kelapa.
+                    </p>
+
+                    <!-- Feature List -->
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">Daging empuk, gurih meresap sampai ke serat terdalam.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">Sangat aman dan nyaman dikonsumsi anak-anak & lansia karena 100% bebas duri.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <p class="text-sm font-medium text-gray-800">Tersedia kemasan hampa udara (vacuum) tahan lama untuk buah tangan / oleh-oleh.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#menu" class="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white font-bold px-6 py-3 rounded-xl transition duration-300 shadow-md">
+                            Lihat Varian Menu Sate Bandeng <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section id="keunggulan" class="py-16 bg-brand-900 text-white wood-pattern border-y border-amber-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Alasan Memilih Kami</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-amber-100 mt-1">
+                    Mengapa Harus Sate Bandeng Bapak Sarnaka?
+                </h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-amber-950/60 p-6 rounded-2xl border border-amber-700/40 hover:border-brand-500 transition duration-300 group">
+                    <div class="w-14 h-14 bg-brand-500/20 text-amber-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition duration-300 border border-brand-500/30">
+                        <i class="fa-solid fa-fish"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-amber-100 mb-2">Ikan Bandeng Segar Pilihan</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Diambil langsung dari tambak pesisir Mauk Tangerang, terjamin kesegaran dan mutunya setiap hari.
+                    </p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="bg-amber-950/60 p-6 rounded-2xl border border-amber-700/40 hover:border-brand-500 transition duration-300 group">
+                    <div class="w-14 h-14 bg-brand-500/20 text-amber-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition duration-300 border border-brand-500/30">
+                        <i class="fa-solid fa-shield-halal"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-amber-100 mb-2">100% Bebas Duri</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Seluruh duri halus dicabut dengan presisi tinggi, menyisakan daging lembut kaya rempah.
+                    </p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="bg-amber-950/60 p-6 rounded-2xl border border-amber-700/40 hover:border-brand-500 transition duration-300 group">
+                    <div class="w-14 h-14 bg-brand-500/20 text-amber-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition duration-300 border border-brand-500/30">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-amber-100 mb-2">Bumbu Rempah Santan</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Menggunakan perasan santan murni dan campuran rempah khas Mauk yang kaya aroma dan gurih alami.
+                    </p>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="bg-amber-950/60 p-6 rounded-2xl border border-amber-700/40 hover:border-brand-500 transition duration-300 group">
+                    <div class="w-14 h-14 bg-brand-500/20 text-amber-400 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition duration-300 border border-brand-500/30">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-amber-100 mb-2">Kemasan Vacuum Praktis</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Dikemas rapi hampa udara, cocok dipesan sebagai oleh-oleh khas Tangerang dan aman dikirim luar kota.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Commerce / Marketplace Section -->
+    <section id="marketplace" class="py-16 bg-gradient-to-b from-[#1c130e] to-[#291a12] text-white border-b border-amber-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Pemesanan Online Praktis</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-amber-100 mt-1">
+                    Beli Resmi Melalui Marketplace Favorit Anda
+                </h2>
+                <p class="text-gray-300 text-sm mt-2">Sate Bandeng Vacuum hampa udara siap dikirim aman ke seluruh wilayah Indonesia melalui toko e-commerce resmi kami.</p>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Shopee Card -->
+                <div class="bg-amber-950/80 p-6 rounded-2xl border border-amber-700/50 hover:border-[#EE4D2D] transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-[#EE4D2D]/20 text-[#EE4D2D] rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition border border-[#EE4D2D]/40">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-1">Shopee Official Store</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed mb-4">
+                            Gunakan promo gratis ongkir & voucher cashback Shopee untuk pembelian Sate Bandeng vacuum kemasan steril.
+                        </p>
+                    </div>
+                    <a href="https://shopee.co.id" target="_blank" class="w-full bg-[#EE4D2D] hover:bg-[#d63f21] text-white font-bold py-3 rounded-xl transition text-center flex items-center justify-center gap-2 text-sm shadow">
+                        <i class="fa-solid fa-cart-shopping"></i> Buka Toko di Shopee
+                    </a>
+                </div>
+
+                <!-- Tokopedia Card -->
+                <div class="bg-amber-950/80 p-6 rounded-2xl border border-amber-700/50 hover:border-[#03AC0E] transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-[#03AC0E]/20 text-[#03AC0E] rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition border border-[#03AC0E]/40">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-1">Tokopedia Official</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed mb-4">
+                            Pengiriman instan/sameday Jabodetabek serta pengiriman reguler antarkota dengan jaminan garansi produk segar.
+                        </p>
+                    </div>
+                    <a href="https://tokopedia.com" target="_blank" class="w-full bg-[#03AC0E] hover:bg-[#028f0b] text-white font-bold py-3 rounded-xl transition text-center flex items-center justify-center gap-2 text-sm shadow">
+                        <i class="fa-solid fa-cart-shopping"></i> Buka Toko di Tokopedia
+                    </a>
+                </div>
+
+                <!-- TikTok Shop Card -->
+                <div class="bg-amber-950/80 p-6 rounded-2xl border border-amber-700/50 hover:border-pink-500 transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-black text-white rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition border border-gray-700">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-1">TikTok Shop</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed mb-4">
+                            Tonton live cooking pemanggangan sate bandeng khas Mauk & klaim kupon diskon eksklusif di TikTok Shop.
+                        </p>
+                    </div>
+                    <a href="https://tiktok.com" target="_blank" class="w-full bg-black border border-gray-700 hover:bg-neutral-800 text-white font-bold py-3 rounded-xl transition text-center flex items-center justify-center gap-2 text-sm shadow">
+                        <i class="fa-brands fa-tiktok"></i> Beli di TikTok Shop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu & Harga Section -->
+    <section id="menu" class="py-20 bg-[#faf7f2]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Pilihan Hidangan</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-brand-900 mt-1">
+                    Menu & Daftar Harga Sate Bandeng
+                </h2>
+                <p class="text-gray-600 text-sm mt-2">Pilih varian favorit Anda, sajian hangat di tempat atau kemasan oleh-oleh vacuum.</p>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                <button onclick="filterMenu('all')" class="menu-tab-btn active bg-brand-800 text-white font-semibold px-5 py-2 rounded-full text-sm transition shadow">
+                    Semua Menu
+                </button>
+                <button onclick="filterMenu('sate')" class="menu-tab-btn bg-white border border-amber-200 text-gray-700 hover:bg-brand-50 font-semibold px-5 py-2 rounded-full text-sm transition shadow-sm">
+                    Sate Bandeng Satuan
+                </button>
+                <button onclick="filterMenu('paket')" class="menu-tab-btn bg-white border border-amber-200 text-gray-700 hover:bg-brand-50 font-semibold px-5 py-2 rounded-full text-sm transition shadow-sm">
+                    Paket Nasi Komplit
+                </button>
+                <button onclick="filterMenu('oleholeh')" class="menu-tab-btn bg-white border border-amber-200 text-gray-700 hover:bg-brand-50 font-semibold px-5 py-2 rounded-full text-sm transition shadow-sm">
+                    Oleh-Oleh Vacuum
+                </button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Menu Item 1 -->
+                <div class="menu-card category-sate bg-white rounded-2xl overflow-hidden shadow-lg border border-amber-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Sate Bandeng Original" 
+                                 class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                Terfavorit
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif font-bold text-xl text-brand-900">Sate Bandeng Original</h3>
+                                <span class="font-bold text-brand-600 text-lg">Rp 35.000</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Daging bandeng halus bumbu rempah santan manis gurih otentik Mauk, dipanggang di atas arang batok.
+                            </p>
+                            <div class="text-xs text-amber-800 font-semibold bg-amber-50 p-2.5 rounded-lg border border-amber-200 flex items-center gap-2">
+                                <i class="fa-solid fa-leaf text-green-600"></i> Disajikan dengan alas daun pisang & sambal
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('Sate Bandeng Original', 35000)" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-plus"></i> Tambah Ke Pesanan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-card category-sate bg-white rounded-2xl overflow-hidden shadow-lg border border-amber-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Sate Bandeng Pedas Manis" 
+                                 class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                Pedas Mantap
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif font-bold text-xl text-brand-900">Sate Bandeng Pedas</h3>
+                                <span class="font-bold text-brand-600 text-lg">Rp 38.000</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Olahan daging bandeng dipadu dengan cabai merah dan bumbu rempah pedas menggugah selera.
+                            </p>
+                            <div class="text-xs text-amber-800 font-semibold bg-amber-50 p-2.5 rounded-lg border border-amber-200 flex items-center gap-2">
+                                <i class="fa-solid fa-pepper-hot text-red-500"></i> Level pedas gurih nagih
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('Sate Bandeng Pedas', 38000)" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-plus"></i> Tambah Ke Pesanan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-card category-paket bg-white rounded-2xl overflow-hidden shadow-lg border border-amber-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Paket Nasi Sate Bandeng" 
+                                 class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                Komplit
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif font-bold text-xl text-brand-900">Paket Nasi Sate Bandeng</h3>
+                                <span class="font-bold text-brand-600 text-lg">Rp 45.000</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                1 ekor Sate Bandeng hangat + Nasi Putih Pulen + Sambal Terasi Khas Mauk + Lalapan Segar & Kerupuk.
+                            </p>
+                            <div class="text-xs text-amber-800 font-semibold bg-amber-50 p-2.5 rounded-lg border border-amber-200 flex items-center gap-2">
+                                <i class="fa-solid fa-bowl-rice text-brand-600"></i> Siap santap langsung di tempat
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('Paket Nasi Sate Bandeng', 45000)" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-plus"></i> Tambah Ke Pesanan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="menu-card category-oleholeh bg-white rounded-2xl overflow-hidden shadow-lg border border-amber-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Paket Oleh-Oleh Vacuum Isi 2" 
+                                 class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                Tahan 7 Hari
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif font-bold text-xl text-brand-900">Paket Vacuum Isi 2</h3>
+                                <span class="font-bold text-brand-600 text-lg">Rp 75.000</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                2 ekor Sate Bandeng kemasan hampa udara steril. Aman untuk perjalanan jauh atau stok kulkas rumah.
+                            </p>
+                            <div class="text-xs text-amber-800 font-semibold bg-amber-50 p-2.5 rounded-lg border border-amber-200 flex items-center gap-2">
+                                <i class="fa-solid fa-box-archive text-amber-700"></i> Praktis tinggal dipanaskan dikukus / teflon
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('Paket Vacuum Isi 2', 75000)" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-plus"></i> Tambah Ke Pesanan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 -->
+                <div class="menu-card category-oleholeh bg-white rounded-2xl overflow-hidden shadow-lg border border-amber-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Paket Besek Jumbo Isi 5" 
+                                 class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                Hemat Jumbo
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif font-bold text-xl text-brand-900">Paket Besek Jumbo (Isi 5)</h3>
+                                <span class="font-bold text-brand-600 text-lg">Rp 180.000</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                5 ekor Sate Bandeng kemasan khas bambu tradisional. Sangat cocok untuk hantaran kerabat & kolega.
+                            </p>
+                            <div class="text-xs text-amber-800 font-semibold bg-amber-50 p-2.5 rounded-lg border border-amber-200 flex items-center gap-2">
+                                <i class="fa-solid fa-gift text-brand-600"></i> Packaging unik & elegan khas Mauk
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('Paket Besek Jumbo (Isi 5)', 180000)" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-plus"></i> Tambah Ke Pesanan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6 -->
+                <div class="menu-card category-sate bg-white rounded-2xl overflow-hidden shadow-lg border border-amber-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Sambal Extra Khas Mauk" 
+                                 class="w-full h-full object-cover transform hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif font-bold text-xl text-brand-900">Sambal Terasi Mauk (Botol)</h3>
+                                <span class="font-bold text-brand-600 text-lg">Rp 20.000</span>
+                            </div>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Sambal goreng terasi racikan rahasia warung Bapak Sarnaka, gurih pedas pas melengkapi hidangan.
+                            </p>
+                            <div class="text-xs text-amber-800 font-semibold bg-amber-50 p-2.5 rounded-lg border border-amber-200 flex items-center gap-2">
+                                <i class="fa-solid fa-fire text-amber-600"></i> Botol higienis 150ml
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('Sambal Terasi Mauk (Botol)', 20000)" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-cart-plus"></i> Tambah Ke Pesanan
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimoni" class="py-20 bg-amber-50 border-y border-amber-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Kata Merekam Yang Sudah Mencoba</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-brand-900 mt-1">
+                    Ulasan Pelanggan Setia
+                </h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-amber-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm italic leading-relaxed mb-4">
+                            "Kalau main ke Mauk Tangerang wajib banget beli Sate Bandeng Bapak Sarnaka! Dagingnya bener-bener lembut, gak ada durinya sama sekali. Bumbu rempahnya manis gurih meresap!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-brand-200 text-brand-800 font-bold rounded-full flex items-center justify-center text-sm">
+                            H
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-900">Haji Suwandi</h4>
+                            <span class="text-xs text-gray-500">Pelanggan Asal Tangerang Kota</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-amber-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm italic leading-relaxed mb-4">
+                            "Saya sering pesan paket vacuum untuk oleh-oleh dibawa ke Jakarta dan Bandung. Dikukus sebentar aromanya langsung keluar harum rempah. Anak-anak suka sekali!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-brand-200 text-brand-800 font-bold rounded-full flex items-center justify-center text-sm">
+                            I
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-900">Ibu Ratna Dewi</h4>
+                            <span class="text-xs text-gray-500">Wisatawan Kuliner Jakarta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-amber-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 text-sm italic leading-relaxed mb-4">
+                            "Cita rasanya sangat otentik. Bumbu santannya tebal dan gurih, bakarannya beraroma khas arang batok. Layanan kirim WhatsApp cepat dan ramah sekali."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-brand-200 text-brand-800 font-bold rounded-full flex items-center justify-center text-sm">
+                            B
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-900">Bapak Hendra</h4>
+                            <span class="text-xs text-gray-500">Penggemar Kuliner Nusantara</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="kontak" class="py-20 bg-brand-900 text-white wood-pattern relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left Details & Map Mockup Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Singgah & Hubungi Kami</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-amber-100">
+                        Lokasi & Kontak Pemesanan
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Kunjungi warung kami langsung di Mauk Tangerang untuk menikmati sate bandeng segar hangat dari panggangan, atau lakukan pemesanan via WhatsApp.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Address Info -->
+                        <div class="flex items-start gap-4 p-4 bg-amber-950/70 rounded-xl border border-amber-800/50">
+                            <div class="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center shrink-0 text-white font-bold text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-amber-200 text-base">Alamat Rumah & Warung</h4>
+                                <p class="text-sm text-gray-300 mt-0.5">
+                                    Jl. Raya Mauk No. 25, Mauk Barat, Kec. Mauk, Kabupaten Tangerang, Banten 15310
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Hours Info -->
+                        <div class="flex items-start gap-4 p-4 bg-amber-950/70 rounded-xl border border-amber-800/50">
+                            <div class="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center shrink-0 text-white font-bold text-lg">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-amber-200 text-base">Jam Operasional</h4>
+                                <p class="text-sm text-gray-300 mt-0.5">
+                                    Buka Setiap Hari: <strong class="text-amber-400">08:00 - 20:00 WIB</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Phone / WA Info -->
+                        <div class="flex items-start gap-4 p-4 bg-amber-950/70 rounded-xl border border-amber-800/50">
+                            <div class="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center shrink-0 text-white font-bold text-lg">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-amber-200 text-base">Layanan WhatsApp & Telepon</h4>
+                                <p class="text-sm text-amber-300 font-bold mt-0.5">
+                                    +62 856-9486-7226 (Bapak Sarnaka)
+                                </p>
+                                <p class="text-xs text-gray-400 mt-1">Siap melayani pemesanan porsi katering & pengiriman paket oleh-oleh.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketplace Direct Links -->
+                    <div class="p-4 bg-amber-950/70 rounded-xl border border-amber-800/50 space-y-3">
+                        <h4 class="font-bold text-amber-200 text-sm">Tersedia Juga di E-Commerce:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://shopee.co.id" target="_blank" class="bg-[#EE4D2D] text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1">
+                                <i class="fa-solid fa-bag-shopping"></i> Shopee
+                            </a>
+                            <a href="https://tokopedia.com" target="_blank" class="bg-[#03AC0E] text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1">
+                                <i class="fa-solid fa-store"></i> Tokopedia
+                            </a>
+                            <a href="https://tiktok.com" target="_blank" class="bg-black text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 border border-gray-700">
+                                <i class="fa-brands fa-tiktok"></i> TikTok Shop
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Container Preview -->
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-amber-700/50 shadow-xl bg-amber-950 h-64">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31737.89297240366!2d106.5050!3d-6.0400!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a032222222222%3A0x1111111111111111!2sMauk%2C%20Tangerang!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Lokasi Sate Bandeng Bapak Sarnaka Mauk Tangerang">
+                        </iframe>
+                    </div>
+
+                </div>
+
+                <!-- Right Quick Order Form -->
+                <div class="lg:col-span-6 bg-amber-950 p-8 rounded-3xl border-2 border-amber-600/40 shadow-2xl">
+                    <div class="mb-6">
+                        <h3 class="font-serif font-bold text-2xl text-amber-100">Kirim Pesanan / Pertanyaan</h3>
+                        <p class="text-xs text-gray-300 mt-1">Isi formulir di bawah ini untuk terhubung langsung ke WhatsApp Bapak Sarnaka.</p>
+                    </div>
+
+                    <form id="order-form" onsubmit="handleDirectOrder(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-amber-300 mb-1">Nama Lengkap</label>
+                            <input type="text" id="cust-name" required placeholder="Contoh: Budi Santoso" 
+                                   class="w-full bg-amber-900/60 border border-amber-700 text-amber-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-amber-300 mb-1">Nomor WhatsApp</label>
+                            <input type="tel" id="cust-phone" required placeholder="Contoh: 081234567890" 
+                                   class="w-full bg-amber-900/60 border border-amber-700 text-amber-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-amber-300 mb-1">Jenis Pesanan</label>
+                            <select id="cust-menu" class="w-full bg-amber-900/60 border border-amber-700 text-amber-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 text-sm">
+                                <option value="Sate Bandeng Original (Rp 35.000)">Sate Bandeng Original (Rp 35.000)</option>
+                                <option value="Sate Bandeng Pedas (Rp 38.000)">Sate Bandeng Pedas (Rp 38.000)</option>
+                                <option value="Paket Nasi Sate Bandeng (Rp 45.000)">Paket Nasi Sate Bandeng (Rp 45.000)</option>
+                                <option value="Paket Vacuum Isi 2 (Rp 75.000)">Paket Vacuum Isi 2 (Rp 75.000)</option>
+                                <option value="Paket Besek Jumbo Isi 5 (Rp 180.000)">Paket Besek Jumbo Isi 5 (Rp 180.000)</option>
+                                <option value="Tanya Informasi Acara / Katering">Tanya Informasi Acara / Katering</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-amber-300 mb-1">Jumlah Porsi / Paket</label>
+                            <input type="number" id="cust-qty" min="1" value="1" required 
+                                   class="w-full bg-amber-900/60 border border-amber-700 text-amber-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-amber-300 mb-1">Alamat Kirim / Catatan Khusus</label>
+                            <textarea id="cust-notes" rows="3" placeholder="Tuliskan alamat pengiriman atau permintaan khusus..." 
+                                      class="w-full bg-amber-900/60 border border-amber-700 text-amber-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-base">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> KIRIM PESANAN VIA WHATSAPP
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Shopping Cart Modal Overlay -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative border border-amber-200">
+            <button onclick="closeCartModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
+                <div class="w-10 h-10 bg-brand-100 text-brand-800 rounded-xl flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-basket-shopping text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif font-bold text-xl text-brand-900">Keranjang Pesanan</h3>
+                    <p class="text-xs text-gray-500">Sate Bandeng Bapak Sarnaka Mauk</p>
+                </div>
+            </div>
+
+            <!-- Cart Items Container -->
+            <div id="cart-items-list" class="max-h-60 overflow-y-auto space-y-3 mb-4 pr-1">
+                <!-- JavaScript inserted items here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="cart-empty" class="text-center py-8 text-gray-400 text-sm">
+                <i class="fa-solid fa-utensils text-4xl mb-2 text-amber-200"></i>
+                <p>Keranjang pesanan masih kosong.</p>
+            </div>
+
+            <!-- Total Price Summary -->
+            <div id="cart-summary" class="hidden border-t border-gray-200 pt-3 space-y-2">
+                <div class="flex justify-between items-center text-sm font-bold text-gray-800">
+                    <span>Total Estimasi:</span>
+                    <span id="cart-total-price" class="text-brand-600 text-lg">Rp 0</span>
+                </div>
+                
+                <button onclick="checkoutWhatsApp()" class="w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold py-3 rounded-xl hover:from-brand-600 hover:to-brand-700 transition flex items-center justify-center gap-2 mt-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Lanjutkan Pemesanan WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#120a06] text-gray-400 py-12 border-t border-amber-900/60 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-fire-burner text-xl"></i>
+                        </div>
+                        <span class="font-serif text-lg font-bold text-amber-200 tracking-wide">
+                            SATE BANDENG BAPAK SARNAKA
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
+                        Kuliner khas pilihan unggulan dari Mauk, Tangerang. Menyajikan hidangan sate bandeng bebas duri bercita rasa otentik dengan bumbu santan dan rempah warisan.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-8 h-8 bg-amber-950 rounded-full flex items-center justify-center text-amber-400 hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 bg-amber-950 rounded-full flex items-center justify-center text-amber-400 hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 bg-amber-950 rounded-full flex items-center justify-center text-amber-400 hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Nav Links -->
+                <div>
+                    <h4 class="font-bold text-amber-200 text-sm mb-3 uppercase tracking-wider">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-amber-400 transition">Beranda Utama</a></li>
+                        <li><a href="#tentang" class="hover:text-amber-400 transition">Tentang Kami</a></li>
+                        <li><a href="#menu" class="hover:text-amber-400 transition">Menu & Harga</a></li>
+                        <li><a href="#keunggulan" class="hover:text-amber-400 transition">Keunggulan Khas Mauk</a></li>
+                        <li><a href="#testimoni" class="hover:text-amber-400 transition">Ulasan Pembeli</a></li>
+                    </ul>
+                </div>
+
+                <!-- Address Summary -->
+                <div>
+                    <h4 class="font-bold text-amber-200 text-sm mb-3 uppercase tracking-wider">Lokasi Kami</h4>
+                    <p class="text-xs leading-relaxed text-gray-400">
+                        Jl. Raya Mauk No. 25, Mauk Barat, Kec. Mauk, Kab. Tangerang, Banten 15310
+                    </p>
+                    <p class="text-xs text-amber-400 mt-2 font-semibold">
+                        Buka: Senin - Minggu (08.00 - 20.00 WIB)
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 border-t border-amber-900/40 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 Sate Bandeng Bapak Sarnaka Mauk Tangerang. All Rights Reserved.</p>
+                <p class="text-amber-400/80">Oleh-oleh Kuliner Khas Mauk, Tangerang - Banten</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Shopping Cart State Management
+        let cartItems = [];
+
+        // Toggle Mobile Menu Drawer
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter Menu Catalog Tabs
+        function filterMenu(category) {
+            const buttons = document.querySelectorAll('.menu-tab-btn');
+            const cards = document.querySelectorAll('.menu-card');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-brand-800', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700', 'border-amber-200');
+            });
+
+            // Highlight active button
+            event.target.classList.add('active', 'bg-brand-800', 'text-white');
+            event.target.classList.remove('bg-white', 'text-gray-700', 'border-amber-200');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    if (card.classList.contains(`category-${category}`)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Add Product to Cart
+        function addToCart(name, price) {
+            const existingItem = cartItems.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cartItems.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            openCartModal();
+        }
+
+        // Remove Item from Cart
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Update Cart Quantities
+        function changeQty(index, delta) {
+            if (cartItems[index]) {
+                cartItems[index].qty += delta;
+                if (cartItems[index].qty <= 0) {
+                    cartItems.splice(index, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        // Format Currency Helper
+        function formatRupiah(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        // Update Cart Modal and Badges
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const badgeMobile = document.getElementById('cart-badge-mobile');
+            const list = document.getElementById('cart-items-list');
+            const emptyState = document.getElementById('cart-empty');
+            const summary = document.getElementById('cart-summary');
+            const totalPriceEl = document.getElementById('cart-total-price');
+
+            const totalQty = cartItems.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            badge.innerText = totalQty;
+            badgeMobile.innerText = totalQty;
+
+            list.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                emptyState.classList.remove('hidden');
+                summary.classList.add('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                summary.classList.remove('hidden');
+
+                cartItems.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'flex items-center justify-between p-3 bg-amber-50 rounded-xl border border-amber-200 text-sm';
+                    itemDiv.innerHTML = `
+                        <div class="flex-1">
+                            <h4 class="font-bold text-brand-900">${item.name}</h4>
+                            <p class="text-xs text-gray-600">${formatRupiah(item.price)} x ${item.qty}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeQty(${index}, -1)" class="w-6 h-6 bg-amber-200 text-brand-900 font-bold rounded flex items-center justify-center hover:bg-amber-300">-</button>
+                            <span class="font-bold text-xs">${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)" class="w-6 h-6 bg-brand-500 text-white font-bold rounded flex items-center justify-center hover:bg-brand-600">+</button>
+                            <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 ml-2 text-xs">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    list.appendChild(itemDiv);
+                });
+
+                totalPriceEl.innerText = formatRupiah(totalPrice);
+            }
+        }
+
+        // Cart Modal Control
+        function openCartModal() {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        // Checkout Cart to WhatsApp Direct Link
+        function checkoutWhatsApp() {
+            if (cartItems.length === 0) return;
+
+            let orderText = "Halo Bapak Sarnaka, saya ingin memesan Sate Bandeng Khas Mauk:\n\n";
+            let grandTotal = 0;
+
+            cartItems.forEach((item, i) => {
+                const subtotal = item.price * item.qty;
+                grandTotal += subtotal;
+                orderText += `${i + 1}. ${item.name} (${item.qty}x) = ${formatRupiah(subtotal)}\n`;
+            });
+
+            orderText += `\n*Total Estimasi:* ${formatRupiah(grandTotal)}`;
+            orderText += `\n\nMohon informasi ongkir dan konfirmasi ketersediaan stok. Terima kasih!`;
+
+            const waNumber = "6285694867226";
+            const encodedText = encodeURIComponent(orderText);
+            window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+        }
+
+        // Form Direct Order Handler
+        function handleDirectOrder(event) {
+            event.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const menu = document.getElementById('cust-menu').value;
+            const qty = document.getElementById('cust-qty').value;
+            const notes = document.getElementById('cust-notes').value;
+
+            let message = `Halo Bapak Sarnaka, saya ingin melakukan pemesanan:\n\n`;
+            message += `*Nama:* ${name}\n`;
+            message += `*No. WA:* ${phone}\n`;
+            message += `*Pesanan:* ${menu}\n`;
+            message += `*Jumlah:* ${qty} Porsi/Paket\n`;
+            if (notes) {
+                message += `*Alamat / Catatan:* ${notes}\n`;
+            }
+            message += `\nMohon diproses, terima kasih!`;
+
+            const waNumber = "6285694867226";
+            const encodedText = encodeURIComponent(message);
+            window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+        }
+    </script>
+</body>
+</html>
